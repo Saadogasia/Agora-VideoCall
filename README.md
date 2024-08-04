@@ -10,12 +10,6 @@ This application integrates the Agora Web SDK via a WebView and handles the nece
 - **WebView Integration**: Displays the Agora web application for video conferencing.
 - **Permissions Handling**: Requests camera and audio recording permissions to use the device's hardware for video calls.
 
-## Permissions
-
-On Android, the app requests the following permissions:
-
-- **Camera**: Required to access the camera for video calls.
-- **Audio Recording**: Required to capture audio during calls.
 
 ## Images
 
