@@ -16,3 +16,9 @@ On Android, the app requests the following permissions:
 
 - **Camera**: Required to access the camera for video calls.
 - **Audio Recording**: Required to capture audio during calls.
+
+## Images
+
+![image](image1.png)
+![image](image2.png)
+![image](image3.png)
