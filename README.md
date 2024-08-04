@@ -1,10 +1,9 @@
 # Agora Sdk Webview
-
-This React Native project demonstrates how to use `react-native-webview` to display a web application and request camera and audio recording permissions using Expo. The web application in this example is hosted at `https://conferencing.agora.io`, which leverages the Agora SDK for video conferencing.
+This application integrates the Agora Web SDK via a WebView and handles the necessary permissions to ensure video and audio functionalities work seamlessly and demonstrates how to use `react-native-webview` to display a web application and request camera and audio recording permissions using Expo. The web application in this example is hosted at `https://conferencing.agora.io`, which leverages the Agora SDK for video conferencing.
 
 ## Project Overview
 
-This application integrates the Agora Web SDK via a WebView and handles the necessary permissions to ensure video and audio functionalities work seamlessly.
+
 
 ### Features
 
