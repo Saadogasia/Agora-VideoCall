@@ -1,20 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { useWindowDimensions } from "react-native";
+import { useEffect } from "react";
+import { SafeAreaView } from "react-native";
+import WebView from "react-native-webview";
+import { Platform } from "react-native";
+import { Camera } from "expo-camera";
+import { Audio } from "expo-av";
+export default function Index() {
+  const { height, width } = useWindowDimensions();
+  const DEPLOYED_APP_URL = "https://conferencing.agora.io";
 
-export default function App() {
+  useEffect(() => {
+    async function requestPermissions() {
+      if (Platform.OS === "android") {
+        try {
+          // Request camera permissions
+          const cameraPermission = await Camera.requestCameraPermissionsAsync();
+          if (cameraPermission.status !== "granted") {
+            console.log("Camera permission denied");
+          } else {
+            console.log("Camera permission granted");
+          }
+
+          // Request audio recording permissions
+          const audioPermission = await Audio.requestPermissionsAsync();
+          if (audioPermission.status !== "granted") {
+            console.log("Audio recording permission denied");
+          } else {
+            console.log("Audio recording permission granted");
+          }
+        } catch (error) {
+          console.error("Error requesting permissions:", error);
+        }
+      }
+    }
+
+    requestPermissions();
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <WebView
+        allowsInlineMediaPlayback
+        mediaPlaybackRequiresUserAction={false}
+        source={{ uri: DEPLOYED_APP_URL }}
+        style={{
+          flex: 1,
+          height: height,
+          width: width,
+        }}
+      />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
